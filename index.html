@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz Collection - 다양한 주제의 인터랙티브 퀴즈 게임 모음">
+    <title>🎮 Quiz Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .quiz-card:hover::before {
+            opacity: 1;
+        }
+
+        .quiz-card.quiz-master {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.2));
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .quiz-card.datasci {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(6, 182, 212, 0.2));
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+        }
+
+        .play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .quiz-card:hover .play-btn {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer {
+            margin-top: 60px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 3rem;
+            }
+
+            .quiz-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">🎮</div>
+            <h1>Quiz Collection</h1>
+            <p class="subtitle">재미있고 교육적인 인터랙티브 퀴즈 게임 모음</p>
+        </header>
+
+        <div class="quiz-grid">
+            <a href="quiz-master/index.html" class="quiz-card quiz-master">
+                <div class="card-icon">🧠</div>
+                <h2 class="card-title">Quiz Master</h2>
+                <p class="card-description">
+                    일반 상식, 과학, 역사, 지리 등 다양한 주제의 퀴즈로
+                    지식을 테스트하세요!
+                </p>
+                <div class="card-tags">
+                    <span class="tag">📚 일반상식</span>
+                    <span class="tag">🔬 과학</span>
+                    <span class="tag">🏛️ 역사</span>
+                    <span class="tag">🌍 지리</span>
+                </div>
+                <div class="play-btn">
+                    플레이하기 →
+                </div>
+            </a>
+
+            <a href="datasci-trivia/index.html" class="quiz-card datasci">
+                <div class="card-icon">🧪</div>
+                <h2 class="card-title">DataSciTrivia</h2>
+                <p class="card-description">
+                    데이터 사이언스 전문 퀴즈! 머신러닝, 통계학, Python,
+                    데이터분석 지식을 점검하세요.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">🤖 머신러닝</span>
+                    <span class="tag">📊 통계학</span>
+                    <span class="tag">🐍 Python</span>
+                    <span class="tag">📈 데이터분석</span>
+                </div>
+                <div class="play-btn">
+                    플레이하기 →
+                </div>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p>Made with ❤️ | <a href="https://github.com/sechan9999" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

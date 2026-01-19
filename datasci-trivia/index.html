@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 DataSciTrivia - 데이터 사이언스 퀴즈</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- 시작 화면 -->
+    <div id="start-screen" class="screen active">
+      <h1>🧪 DataSciTrivia</h1>
+      <p class="subtitle">데이터 사이언스 지식을 테스트해보세요!</p>
+
+      <div class="category-select">
+        <label for="category">카테고리 선택</label>
+        <select id="category">
+          <option value="ml">🤖 머신러닝</option>
+          <option value="stats">📊 통계학</option>
+          <option value="python">🐍 Python</option>
+          <option value="data">📈 데이터분석</option>
+        </select>
+      </div>
+
+      <div class="difficulty-select">
+        <label>난이도 선택</label>
+        <div class="difficulty-btns">
+          <button class="diff-btn active" data-diff="easy">쉬움</button>
+          <button class="diff-btn" data-diff="medium">보통</button>
+          <button class="diff-btn" data-diff="hard">어려움</button>
+        </div>
+      </div>
+
+      <button id="start-btn" class="primary-btn">게임 시작 🚀</button>
+    </div>
+
+    <!-- 퀴즈 화면 -->
+    <div id="quiz-screen" class="screen">
+      <div class="quiz-header">
+        <div class="progress-info">
+          <span id="question-count">1 / 10</span>
+          <span id="score-display">점수: 0</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <div class="timer" id="timer">⏱️ 15</div>
+      </div>
+
+      <div class="question-section">
+        <p class="category-badge" id="current-category">🤖 머신러닝</p>
+        <h2 class="question-text" id="question-text">질문이 여기에 표시됩니다.</h2>
+      </div>
+
+      <div class="options-section" id="options">
+        <!-- 선택지가 동적으로 생성됨 -->
+      </div>
+
+      <button id="next-btn" class="primary-btn hidden">다음 문제 →</button>
+    </div>
+
+    <!-- 결과 화면 -->
+    <div id="result-screen" class="screen">
+      <div class="result-content">
+        <div id="result-emoji" class="result-emoji">🏆</div>
+        <h2 id="result-title">훌륭해요!</h2>
+        <p id="result-score" class="result-score">8 / 10</p>
+        <p id="result-percent" class="result-percent">정답률: 80%</p>
+
+        <div class="result-stats">
+          <div class="stat-item">
+            <span class="stat-value" id="correct-count">8</span>
+            <span class="stat-label">정답</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="wrong-count">2</span>
+            <span class="stat-label">오답</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="avg-time">8.5초</span>
+            <span class="stat-label">평균 시간</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button id="retry-btn" class="primary-btn">다시 하기 🔄</button>
+        <button id="home-btn" class="secondary-btn">홈으로</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
