@@ -44,7 +44,7 @@
 2. `index.html` 파일을 브라우저에서 엽니다.
 
 ### GitHub Pages
-[https://sechan9999.github.io/quiz-collection](https://sechan9999.github.io/quiz-collection)
+https://sechan9999.github.io/Quiz_collection/
 
 ## 📁 프로젝트 구조
 
