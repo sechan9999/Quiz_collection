@@ -62,6 +62,13 @@
               │ Step 6: 리포트 생성     │
               │ → teacher-report       │
               │   summary              │
+              └──────────┬─────────────┘
+                         │
+                         ▼
+              ┌────────────────────────┐
+              │ Step 7: 리포트 내보내기 │
+              │ → export-report        │
+              │   csv/pdf              │
               └──────────┴─────────────┘
 ```
 
@@ -210,6 +217,7 @@ Sun: ███████░░░ 720점 (14회)
 | 비교 분석 | `/project:teacher-compare` |
 | 심층 분석 | `/project:teacher-analytics` |
 | 리포트 생성 | `/project:teacher-report` |
+| 리포트 내보내기 | `/project:export-report` |
 
 ## 사용 예시
 
@@ -248,6 +256,7 @@ Sun: ███████░░░ 720점 (14회)
 | C | 비교 분석 |
 | A | 심층 분석 |
 | R | 리포트 생성 |
+| X | 리포트 내보내기 (CSV/PDF) |
 | E | 성적 입력 |
 | Q | 종료 |
 
